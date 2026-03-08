@@ -1,0 +1,69 @@
+{
+  "app": {
+    "signingConfigs": [
+      {
+        "name": "default",
+        "material": {
+          "storePassword": "0000002035127FF2BFBE335FB888B4581C54BB13D17254FA800617BC7A34347A34C7ED2D527E03D7637690A857191555",
+          "certpath": "/storage/Users/currentUser/appdata/el2/base/com.huawei.devecostudio/files/ohos/config/default_ArtifyPagese0MHGSpy1ChGIczL10-NFGpbNrM2p_wWm9n5qUD4omI.cer",
+          "keyAlias": "debugKey",
+          "keyPassword": "0000002035127FF2BFBE335FB888B4581C54BB13D17254FA800617BC7A34347A34C7ED2D527E03D7637690A857191555",
+          "profile": "/storage/Users/currentUser/appdata/el2/base/com.huawei.devecostudio/files/ohos/config/default_ArtifyPagese0MHGSpy1ChGIczL10-NFGpbNrM2p_wWm9n5qUD4omI.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "/storage/Users/currentUser/appdata/el2/base/com.huawei.devecostudio/files/ohos/config/default_ArtifyPagese0MHGSpy1ChGIczL10-NFGpbNrM2p_wWm9n5qUD4omI.p12"
+        },
+        "type": "HarmonyOS"
+      },
+      {
+        "name": "default1",
+        "material": {
+          "storePassword": "0000002039F1AFBD2C24D059AC45863B981EFE002D14BD02D839F7AEE1E161D6C96E4A825AB64616B9D3E3183744D396",
+          "certpath": "/storage/Users/currentUser/appdata/el2/base/com.huawei.devecostudio/files/ohos/config/default1_ArtifyPagese0MHGSpy1ChGIczL10-NFGpbNrM2p_wWm9n5qUD4omI.cer",
+          "keyAlias": "debugKey",
+          "keyPassword": "0000002039F1AFBD2C24D059AC45863B981EFE002D14BD02D839F7AEE1E161D6C96E4A825AB64616B9D3E3183744D396",
+          "profile": "/storage/Users/currentUser/appdata/el2/base/com.huawei.devecostudio/files/ohos/config/default1_ArtifyPagese0MHGSpy1ChGIczL10-NFGpbNrM2p_wWm9n5qUD4omI.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "/storage/Users/currentUser/appdata/el2/base/com.huawei.devecostudio/files/ohos/config/default1_ArtifyPagese0MHGSpy1ChGIczL10-NFGpbNrM2p_wWm9n5qUD4omI.p12"
+        },
+        "type": "HarmonyOS"
+      }
+    ],
+    "products": [
+      {
+        "name": "default",
+        "signingConfig": "default",
+        "targetSdkVersion": "6.0.1(21)",
+        "compatibleSdkVersion": "6.0.1(21)",
+        "runtimeOS": "HarmonyOS",
+        "buildOption": {
+          "strictMode": {
+            "caseSensitiveCheck": true,
+            "useNormalizedOHMUrl": true
+          }
+        }
+      }
+    ],
+    "buildModeSet": [
+      {
+        "name": "debug"
+      },
+      {
+        "name": "release"
+      }
+    ]
+  },
+  "modules": [
+    {
+      "name": "entry",
+      "srcPath": "./entry",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
+    }
+  ]
+}
