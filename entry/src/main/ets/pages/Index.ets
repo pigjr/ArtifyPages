@@ -21,7 +21,7 @@ struct Index {
       // 主内容区域
       Column() {
         this.Header()
-        
+
         if (this.currentIndex === 0) {
           this.HomePage()
         } else if (this.currentIndex === 1) {
@@ -121,7 +121,11 @@ struct Index {
     .width('100%')
     .padding(24)
     .backgroundColor('#FFFFFF')
-    .borderBottom({ width: 1, color: '#E0E0E0' })
+    .border({
+      width: { left: 2, right: 1 },
+      color: { top: '#FF0000', bottom: '#00FF00' },
+      style: BorderStyle.Dashed
+    })
   }
 
   @Builder HomePage() {
@@ -136,7 +140,7 @@ struct Index {
           .fontSize(16)
           .fontColor('#666666')
           .margin({ top: 8 })
-        
+
         Row({ space: 16 }) {
           Button('导入图书')
             .backgroundColor('#2E7D32')
@@ -145,7 +149,7 @@ struct Index {
             .onClick(() => {
               this.currentIndex = 1;
             })
-          
+
           Button('开始创作')
             .backgroundColor('#FFFFFF')
             .fontColor('#2E7D32')
@@ -169,7 +173,7 @@ struct Index {
           .fontSize(18)
           .fontWeight(FontWeight.Medium)
           .fontColor('#333333')
-        
+
         Row({ space: 16 }) {
           this.QuickActionCard('📖', '打开最近图书', '继续上次的项目')
           this.QuickActionCard('🎨', '快速生成', '一键生成插图')
@@ -217,7 +221,7 @@ struct Index {
         .fontSize(24)
         .fontWeight(FontWeight.Bold)
         .fontColor('#333333')
-      
+
       if (this.isLoading) {
         Column() {
           Text('正在读取文件...')
@@ -228,8 +232,8 @@ struct Index {
             total: 100,
             type: ProgressType.Linear
           })
-          .width('80%')
-          .margin({ top: 16 })
+            .width('80%')
+            .margin({ top: 16 })
         }
         .width('100%')
         .padding(32)
@@ -253,12 +257,12 @@ struct Index {
       Text('支持的格式: TXT')
         .fontSize(14)
         .fontColor('#666666')
-      
+
       Text('文件大小建议: < 50MB（大文件会自动分块读取）')
         .fontSize(12)
         .fontColor('#999999')
         .margin({ top: 8 })
-      
+
       Row({ space: 16 }) {
         Button('选择TXT文件')
           .backgroundColor('#2E7D32')
@@ -269,7 +273,7 @@ struct Index {
           .onClick(() => {
             this.selectAndReadFile();
           })
-        
+
         Button('示例文本')
           .backgroundColor('#FFFFFF')
           .fontColor('#2E7D32')
@@ -297,7 +301,7 @@ struct Index {
         .fontSize(18)
         .fontWeight(FontWeight.Medium)
         .fontColor('#333333')
-      
+
       Row() {
         Text('书名:')
           .fontSize(14)
@@ -308,7 +312,7 @@ struct Index {
           .fontColor('#333333')
           .margin({ left: 8 })
       }
-      
+
       Row() {
         Text('章节数:')
           .fontSize(14)
@@ -319,7 +323,7 @@ struct Index {
           .fontColor('#333333')
           .margin({ left: 8 })
       }
-      
+
       Row() {
         Text('总字数:')
           .fontSize(14)
@@ -330,7 +334,7 @@ struct Index {
           .fontColor('#333333')
           .margin({ left: 8 })
       }
-      
+
       Row({ space: 16 }) {
         Button('开始生成插图')
           .backgroundColor('#2E7D32')
@@ -339,7 +343,7 @@ struct Index {
           .onClick(() => {
             this.currentIndex = 2;
           })
-        
+
         Button('重新选择')
           .backgroundColor('#FFFFFF')
           .fontColor('#666666')
@@ -364,20 +368,20 @@ struct Index {
   private async selectAndReadFile() {
     try {
       this.isLoading = true;
-      
+
       // TODO: 实际的文件选择器需要使用系统API
       // 这里先用模拟路径
       const mockFilePath = '/data/storage/el2/base/haps/entry/files/sample.txt';
-      
+
       // 检查文件是否存在
       try {
         const fileInfo = await FileUtils.getFileInfo(mockFilePath);
         console.log('文件信息:', fileInfo);
-        
+
         if (fileInfo.type.toLowerCase() !== 'txt') {
           throw new Error('仅支持TXT文件');
         }
-        
+
         const content = await FileUtils.readTxtFile(mockFilePath);
         this.bookContent = content;
         this.selectedBook = content.title;
@@ -420,7 +424,7 @@ struct Index {
 林凡眼前一亮，这听起来很有趣。
 
 "那么，我们开始吧！"他兴奋地说道。`;
-    
+
     const mockBookContent: BookContent = {
       title: '艺绘书页系统',
       content: exampleContent,
@@ -432,14 +436,14 @@ struct Index {
           endIndex: exampleContent.split('第二章')[0].length
         },
         {
-          title: '第二章 第一个任务', 
+          title: '第二章 第一个任务',
           content: '第二章' + exampleContent.split('第二章')[1],
           startIndex: exampleContent.split('第二章')[0].length,
           endIndex: exampleContent.length
         }
       ]
     };
-    
+
     this.bookContent = mockBookContent;
     this.selectedBook = mockBookContent.title;
     console.log('示例文本加载成功');
@@ -451,12 +455,12 @@ struct Index {
         .fontSize(24)
         .fontWeight(FontWeight.Bold)
         .fontColor('#333333')
-      
+
       Column({ space: 16 }) {
         Text('选择文本段落并生成插图')
           .fontSize(14)
           .fontColor('#666666')
-        
+
         Button('开始生成')
           .backgroundColor('#2E7D32')
           .fontSize(16)
@@ -482,7 +486,7 @@ struct Index {
         .fontSize(24)
         .fontWeight(FontWeight.Bold)
         .fontColor('#333333')
-      
+
       Column({ space: 16 }) {
         Text('管理所有生成的插图')
           .fontSize(14)
@@ -506,7 +510,7 @@ struct Index {
         .fontSize(24)
         .fontWeight(FontWeight.Bold)
         .fontColor('#333333')
-      
+
       Column({ space: 16 }) {
         Text('应用配置和偏好设置')
           .fontSize(14)
