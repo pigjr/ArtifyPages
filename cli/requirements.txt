@@ -1,0 +1,31 @@
+# 核心AI框架
+openvino-genai>=2024.0.0
+huggingface_hub>=0.20.0
+optimum[openvino]>=1.16.0
+
+# 图像生成框架
+diffusers>=0.24.0
+transformers>=4.36.0
+accelerate>=0.25.0
+
+# 文本处理和NLP
+numpy>=1.24.0
+torch>=2.0.0
+
+# Epub生成
+ebooklib>=0.18
+
+# 图像处理
+Pillow>=9.0.0
+
+# 数据处理
+pandas>=1.5.0
+
+# 系统工具
+pathlib2>=2.3.0
+
+# 可选：更好的进度条
+tqdm>=4.64.0
+
+# 可选：更好的JSON处理
+orjson>=3.8.0
