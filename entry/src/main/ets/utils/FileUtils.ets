@@ -1,6 +1,5 @@
 import { BusinessError } from '@kit.BasicServicesKit';
 import { fileIo } from '@kit.CoreFileKit';
-import { util } from '@kit.ArkTS';
 export interface BookContent {
   title: string;
   content: string;
